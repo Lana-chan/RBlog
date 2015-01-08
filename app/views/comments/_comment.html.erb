@@ -1,0 +1,9 @@
+<%= div_for comment do %>
+  <p>
+    <strong>
+      <%= comment.name %> @ <%= comment.created_at.strftime("%F %H:%M %z") %>
+    </strong>
+    <br/>
+    <%= comment.body %>
+  </p>
+<% end %>
