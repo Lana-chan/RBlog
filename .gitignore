@@ -3,3 +3,6 @@
 
 # ignora tmp
 tmp/
+
+Gemfile.lock
+log/

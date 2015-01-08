@@ -13,10 +13,15 @@
 </div>
 
 <%= form_for [@post, Comment.new] do |f| %>
-  <p>
-    <%= f.label :body, "Novo comentario" %><br/>
+  <div class="field">
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
     <%= f.text_area :body %>
-  </p>
-  <p><%= f.submit "Postar" %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit "Postar" %>
+  </div>
 <% end %>
