@@ -1,3 +1,5 @@
 # ignora BDs
 *sqlite3
 
+# ignora tmp
+tmp/
