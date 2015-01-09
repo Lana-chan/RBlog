@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   #tags
   get '/tagged/:query' => 'posts#tagged', as: :tag
+  get '/archive/' => 'posts#archive', as: :archive
 
   root 'posts#index'
 

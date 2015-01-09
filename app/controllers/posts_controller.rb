@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   def index
     #@blog = Blog.first
     #@posts = Post.all.order(created_at: :desc)
-    @posts = Post.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    @posts = Post.all
+    @posts = @posts.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /posts/1
@@ -20,6 +21,16 @@ class PostsController < ApplicationController
   def tagged
     #@blog = Blog.first
     @posts = Post.tagged_with(params[:query])
+    @posts = @posts.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def archive
+    #par = params[:query]
+    #@posts = Post.where("MONTH(date) = ? AND YEAR(date) = ?", par[-2], par[0,4])
+    @date1 = Date.new params[:date][:year].to_i, params[:date][:month].to_i, 01
+    @date2 = Date.new params[:date][:year].to_i, params[:date][:month].to_i, -1
+    @posts = Post.where("DATE(created_at) >= DATE(?) AND DATE(created_at) <= DATE(?)", @date1, @date2)
+    @posts = @posts.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /posts/new
@@ -97,5 +108,4 @@ class PostsController < ApplicationController
       @blog = Blog.first
       @title = @blog.title
     end
-
 end

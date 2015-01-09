@@ -11,13 +11,6 @@
     <%= link_to 'Editar', edit_post_path(@post) %> |
     <%= link_to 'Voltar', posts_path %>
   </div>
-</div>
-
-<div class="right">
-  <%= render "sidebar" %>
-</div>
-
-</div>
 
 <h2>Comentários</h2>
 <div id="comments">
@@ -37,3 +30,17 @@
     <%= f.submit "Postar" %>
   </div>
 <% end %>
+
+</div>
+
+<div class="right">
+  <%= render "sidebar" %>
+</div>
+
+</div>
+
+<div class="footer">
+  <%= link_to 'New Post', new_post_path %>
+  <%= link_to 'Setup', blogs_path %>
+</div>
+

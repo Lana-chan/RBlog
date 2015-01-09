@@ -14,9 +14,14 @@
 
   <div class="container">
     <h3>Arquivo</h3>
-    <p>Escolha o mês.</p>
-    <form action="archive" method="get">
-      <input type="month" id="arch_data">
-    </form>
+    <p>Escolha o ano e mês.</p>
+    <!-- <form action="archive" method="get">
+      <input type="month" id="arch_data"> <input type="submit" value="Ir">
+    </form> -->
+    <%= form_tag("/archive", method: "get") do %>
+      <%= select_year(Date.today) %>
+      <%= select_month(Date.today) %>
+      <%= submit_tag("Ir") %>
+    <% end %>
   </div>
 </menu>
