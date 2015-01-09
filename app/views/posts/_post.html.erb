@@ -1,6 +1,6 @@
 <div class="container post">
   <h2><%= link_to_unless_current post.title, post %></h2>
-  <span class="time">Por <%= @blog.author %> em <%= post.created_at.strftime("%F %H:%M %z") %></span>
+  <span class="time">Por <%= @blog.author %> em <%= post.created_at.strftime("%F %H:%M %Z") %></span>
   <%= simple_format post.body %>
   <% unless post.tag_list.empty? %><span class="tags">Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span><% end %>
 </div>

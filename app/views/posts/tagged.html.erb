@@ -3,6 +3,7 @@
 <div class="wrapper">
 
 <div class="left">
+  <h2>Buscando tag: <%= params[:query] %></h2>
   <%= render :partial => @posts %>
   <div class="container">
     <%= link_to 'Voltar', posts_path %>

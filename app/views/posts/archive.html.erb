@@ -3,6 +3,7 @@
 <div class="wrapper">
 
 <div class="left">
+  <h2>Arquivo: <%= @date1.strftime("%B %Y") %></h2>
   <%= render :partial => @posts %>
   <div class="container">
     <%= link_to 'Voltar', posts_path %>
