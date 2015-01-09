@@ -6,3 +6,6 @@ tmp/
 
 Gemfile.lock
 log/
+
+*.zip
+*.pdf
