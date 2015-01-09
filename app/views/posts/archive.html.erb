@@ -1,22 +1,22 @@
 <%= render :partial => @blog %>
 
+<div class="wrapper">
+
 <div class="left">
   <%= render :partial => @posts %>
   <div class="container">
-    <%= link_to 'Back', posts_path %>
+    <%= link_to 'Voltar', posts_path %>
   </div>
 </div>
 
 <div class="right">
   <%= render "sidebar" %>
 
-  <div class="container">
-    <%= will_paginate @posts %>
-  </div>
+  <%= render "pagination" %>
 </div>
 
-<div class="footer">
-  <%= link_to 'New Post', new_post_path %>
-  <%= link_to 'Setup', blogs_path %>
+<span class="clear"></span>
+
 </div>
 
+<%= render "footer" %>

@@ -1,7 +1,7 @@
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error") %> impediu este post de ser salvo:</h2>
 
       <ul>
       <% @post.errors.full_messages.each do |message| %>
@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label "Título" %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label "Conteúdo" %><br>
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :tag_list %><br>
+    <%= f.label "Lista de tags:" %><br>
     <%= f.text_field :tag_list %>
   </div>
 

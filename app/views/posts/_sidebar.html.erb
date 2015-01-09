@@ -1,10 +1,9 @@
-<menu>
   <div class="container">
     <h3>Descrição</h3>
     <%= @blog.description %>
   </div>
 
-  <div>
+  <div class="container">
     <h3>Tags</h3>
     <% @tags = Post.all.tag_counts_on(:tags) %>
     <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
@@ -24,4 +23,3 @@
       <%= submit_tag("Ir") %>
     <% end %>
   </div>
-</menu>

@@ -4,11 +4,12 @@
 
 <div class="wrapper">
 
-<div class="left">
+<div class="left panel">
   <%= render :partial => @post %>
 
   <div class="container">
     <%= link_to 'Editar', edit_post_path(@post) %> |
+    <%= link_to 'Apagar', @post, :data => {:confirm => 'Tem certeza?'}, method: :delete %> |
     <%= link_to 'Voltar', posts_path %>
   </div>
 
@@ -17,13 +18,15 @@
   <%= render :partial => @post.comments %>
 </div>
 
+<div class="container">
+
 <%= form_for [@post, Comment.new] do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Nome" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label "Conteúdo" %><br>
     <%= f.text_area :body %>
   </div>
   <div class="actions">
@@ -33,14 +36,14 @@
 
 </div>
 
-<div class="right">
+</div>
+
+<div class="right panel">
   <%= render "sidebar" %>
 </div>
 
+<span class="clear"></span>
+
 </div>
 
-<div class="footer">
-  <%= link_to 'New Post', new_post_path %>
-  <%= link_to 'Setup', blogs_path %>
-</div>
-
+<%= render "footer" %>
