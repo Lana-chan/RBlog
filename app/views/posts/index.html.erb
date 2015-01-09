@@ -1,7 +1,18 @@
 <%= render :partial => @blog %>
 
-<%= render :partial => @posts %>
+<div class="left">
+  <%= render :partial => @posts %>
+</div>
 
-<%= will_paginate @posts %>
+<div class="right">
+  <%= render "sidebar" %>
 
-<%= link_to 'New Post', new_post_path %>
+  <div class="container">
+    <%= will_paginate @posts %>
+  </div>
+</div>
+
+<div class="footer">
+  <%= link_to 'New Post', new_post_path %>
+  <%= link_to 'Setup', blogs_path %>
+</div>

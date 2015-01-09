@@ -1,4 +1,4 @@
-<div clas="post">
+<div class="container post">
   <h2><%= link_to_unless_current post.title, post %></h2>
   <span class="time">Por <%= @blog.author %> em <%= post.created_at.strftime("%F %H:%M %z") %></span>
   <%= simple_format post.body %>

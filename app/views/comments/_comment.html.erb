@@ -1,4 +1,4 @@
-<%= div_for comment do %>
+<div class="container comment">
   <p>
     <strong>
       <%= comment.name %> @ <%= comment.created_at.strftime("%F %H:%M %z") %>
@@ -6,4 +6,4 @@
     <br/>
     <%= comment.body %>
   </p>
-<% end %>
+</div>

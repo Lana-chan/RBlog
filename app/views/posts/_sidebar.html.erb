@@ -1,0 +1,22 @@
+<menu>
+  <div class="container">
+    <h3>Descrição</h3>
+    <%= @blog.description %>
+  </div>
+
+  <div>
+    <h3>Tags</h3>
+    <% @tags = Post.all.tag_counts_on(:tags) %>
+    <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <h3>Arquivo</h3>
+    <p>Escolha o mês.</p>
+    <form action="archive" method="get">
+      <input type="month" id="arch_data">
+    </form>
+  </div>
+</menu>
