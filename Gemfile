@@ -39,3 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'acts-as-taggable-on', :github => 'mbleigh/acts-as-taggable-on'
+
+gem 'will_paginate', :github => 'mislav/will_paginate'

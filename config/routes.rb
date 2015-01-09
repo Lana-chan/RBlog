@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   #tags
-  get '/tagged/:query' => 'posts#tagged'
+  get '/tagged/:query' => 'posts#tagged', as: :tag
 
   root 'posts#index'
 

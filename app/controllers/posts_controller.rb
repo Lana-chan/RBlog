@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   before_filter :authenticate, :except => [ :index, :show, :tagged ]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :init
 
   # GET /posts
   # GET /posts.json
   def index
-    @blog = Blog.first
-    @posts = Post.all
+    #@blog = Blog.first
+    #@posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /posts/1
@@ -16,7 +18,7 @@ class PostsController < ApplicationController
 
   # GET /tagged/tag
   def tagged
-    @blog = Blog.first
+    #@blog = Blog.first
     @posts = Post.tagged_with(params[:query])
   end
 
@@ -72,10 +74,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      if Blog.first.blank?
-        redirect_to blogs_path
-      end
-      @blog = Blog.first
+      #@blog = Blog.first
       @post = Post.find(params[:id])
     end
 
@@ -90,4 +89,13 @@ class PostsController < ApplicationController
         name == "blogmaster" && password == "senha"
       end
     end
+
+    def init
+      if Blog.first.blank?
+        redirect_to blogs_path
+      end
+      @blog = Blog.first
+      @title = @blog.title
+    end
+
 end
