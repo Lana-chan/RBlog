@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate, :except => [ :index, :show ]
+  before_filter :authenticate, :except => [ :index, :show, :tagged ]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -12,6 +12,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+  end
+
+  # GET /tagged/tag
+  def tagged
+    @blog = Blog.first
+    @posts = Post.tagged_with(params[:query])
   end
 
   # GET /posts/new
@@ -75,7 +81,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :tag_list)
     end
 
     # requer senha para postar

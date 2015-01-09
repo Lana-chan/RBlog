@@ -38,3 +38,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'acts-as-taggable-on', :github => 'mbleigh/acts-as-taggable-on'

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :comments, :only => [:create]
   end
 
+  #tags
+  get '/tagged/:query' => 'posts#tagged'
+
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
